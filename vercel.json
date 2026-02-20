@@ -1,9 +1,9 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/src/lib/index.ts" }
+    { "source": "/(.*)", "destination": "/src/index.ts" }
   ],
   "functions": {
-    "src/lib/index.ts": {
+    "src/index.ts": {
       "runtime": "nodejs22.x"
     }
   }
