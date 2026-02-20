@@ -1,8 +1,8 @@
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/src/lib/index.ts" }],
   "functions": {
-    "api/index.ts": {
-      "runtime": "nodejs18.x"
+    "src/lib/index.ts": {
+      "runtime": "nodejs v24.12.0"
     }
   }
 }
