@@ -2,7 +2,7 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { streamText } from "hono/streaming";
-import OpenAI from "openai";
+import {OpenAI} from "openai";
 import { prisma } from "./lib/prisma.js";
 
 const app = new Hono();
