@@ -1,10 +1,10 @@
-// import { serve } from "@hono/node-server";
+import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { streamText } from "hono/streaming";
 import {OpenAI} from "openai";
 import { prisma } from "./lib/prisma.js";
-import { handle } from "hono/vercel";
+// import { handle } from "hono/vercel";
 
 const app = new Hono();
 
@@ -321,9 +321,9 @@ app.post("/chat-stream", async (c) => {
 const port = Number(process.env.PORT ?? 3000);
 console.log(`Server is running on port ${port}`);
 
-// serve({
-//   fetch: app.fetch,
-//   port,
-// });
+serve({
+  fetch: app.fetch,
+  port,
+});
 
-export default handle(app)
+// export default handle(app)
