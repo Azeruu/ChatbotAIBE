@@ -3,7 +3,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { streamText } from "hono/streaming";
 import {OpenAI} from "openai";
-import { prisma } from "../src/lib/prisma.js";
+import { prisma } from "./lib/prisma.js";
 import { handle } from "hono/vercel";
 
 const app = new Hono();
