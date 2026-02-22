@@ -322,6 +322,30 @@ app.post("/chat-stream", async (c) => {
   });
 });
 
+// Khusus BOT DC
+app.post("/chat", async (c) => {
+  const body = await c.req.json();
+  const prompt = body.prompt;
+
+  if (!prompt) {
+    return c.json({ error: "Prompt kosong" }, 400);
+  }
+
+  const completion = await groq.chat.completions.create({
+    model: "llama-3.3-70b-versatile",
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "user", content: prompt },
+    ],
+    stream: false,
+  });
+
+  const text =
+    completion.choices[0]?.message?.content ?? "No response";
+
+  return c.json({ response: text });
+});
+
 const port = Number(process.env.PORT ?? 3000);
 console.log(`Server is running on port ${port}`);
 
