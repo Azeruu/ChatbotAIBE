@@ -10,6 +10,9 @@ const app = new Hono();
 
 app.use("/*", cors());
 
+// Endpoint untuk UptimeRobot agar server tidak sleep (Render)
+app.get("/", (c) => c.text("Server is awake and running!"));
+app.get("/ping", (c) => c.text("pong"));
 const groq = new OpenAI({
   apiKey: process.env.GROQ_API_KEY,
   baseURL: "https://api.groq.com/openai/v1",
